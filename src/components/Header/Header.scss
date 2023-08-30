@@ -1,0 +1,48 @@
+.header{
+    width:100%;
+    height:fit-content;
+    display:flex;
+    background-color:azure;
+    justify-content:center;
+    gap:20rem;
+
+    &__logo{
+        width:fit-content;
+        height:fit-content;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    &__img{
+        object-fit:contain;
+        max-width:100%;
+        max-height:100%;
+    }
+
+    &__list{
+        list-style:none;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        width:fit-content;
+        gap:2rem;
+        padding:0;
+    }
+
+    &__home{
+        text-decoration:none;
+        font-size:20px;
+    }
+
+    &__about{
+        text-decoration:none;
+        font-size:20px;
+    }
+
+    &__auth{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+}
