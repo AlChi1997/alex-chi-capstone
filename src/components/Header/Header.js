@@ -17,8 +17,8 @@ const Header = () => {
                 </li>
             </ul>
             <div class="header__auth">
-                <button type="button" class="header__login">Login</button>
-                <button type="button" class="header__signup">Sign-up</button>
+                <button className="header__signup" type="button">Sign-Up</button>
+                <button className='header__login' type="button">Login</button>
             </div>
         </div>
     );

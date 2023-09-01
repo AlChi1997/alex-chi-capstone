@@ -1,0 +1,18 @@
+.footer{
+    display:flex;
+    justify-content:center;
+
+    &__list{
+        list-style:none;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:2rem;
+        padding:0 0 16px;
+    }
+
+    &__home,&__about{
+        text-decoration:none;
+        font-size:20px;
+    }
+}
