@@ -4,6 +4,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Homepage from './Pages/Homepage/Homepage';
 import About from './Pages/About/About';
+import Login from './Pages/LogIn/Login';
+import Signup from './Pages/SignUp/Signup';
 import './styles/App.scss';
 
 function App() {
@@ -16,9 +18,9 @@ function App() {
         <Route path="/about" element={<About />} />
         {/* <Route path="/user:id" element={<User />} />
         <Route path="/user/:id/education" element={<Education />} />
-        <Route path="/user/:id/career" element={<Career />} /> 
+        <Route path="/user/:id/career" element={<Career />} />  */}
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} /> */}
+        <Route path="/Login" element={<Login />} />
       </Routes>
       <Footer />
       </BrowserRouter>

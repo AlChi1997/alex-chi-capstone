@@ -1,0 +1,126 @@
+.login{
+
+    &__box{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height:100vh;
+        width:100%;
+        background:url(../../assets/launchpadlogin.png);
+        background-size:cover;
+        background-position:center;
+    }
+
+    &__formbox{
+        position:relative;
+        width:400px;
+        height:450px;
+        background-color:transparent;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+    }
+
+    &__title{
+        font-size:2em;
+        color:white;
+        text-align:center;
+    }
+
+    &__inputbox{
+        position:relative;
+        margin:30px 0;
+        width:310px;
+        border-bottom:2px solid #FFF;
+
+        & label{
+            position:absolute;
+            top:50%;
+            left:5px;
+            transform:translateY(-50%);
+            color:#FFF;
+            font-size:1em;
+            pointer-events:none;
+            transition:.5s;
+        }
+
+        & input{
+            width:100%;
+            height:50px;
+            background:transparent;
+            border:none;
+            outline:none;
+            font-size:1em;
+            padding: 0 25px 0 5px;
+            color:#FFF;
+
+            &:focus ~ label, :focus ~ :valid{
+                top:-5px;
+            }
+        }
+
+        & img{
+            position:absolute;
+            right:8px;
+            top:20px;
+        }
+    }
+
+    &__forget{
+        margin: -15px 0 15px;
+        font-size:0.9em;
+        color:#FFF;
+        display:flex;
+        justify-content: center;
+
+        & label{
+            display:flex;
+            width:100%;
+            justify-content: space-evenly;
+
+            & div{
+                display:flex;
+                align-items:center;
+                gap:5px;
+            }
+        }
+
+        & a{
+            color:#FFF;
+            text-decoration:none;
+
+            &:hover{
+                text-decoration:underline;
+            }
+        }
+    }
+
+    &__button{
+        width:100%;
+        height:40px;
+        border-radius:40px;
+        background:#FFF;
+        border:none;
+        outline:none;
+        cursor:pointer;
+        font-size:1em;
+        font-weight:600;
+    }
+
+    &__register{
+        font-size:0.9em;
+        color:#FFF;
+        text-align:center;
+        margin:25px 0 10px;
+
+        & a{
+            color:#FFF;
+            text-decoration:none;
+
+            &:hover{
+                text-decoration:underline;
+            }
+        }
+    }
+}
+
