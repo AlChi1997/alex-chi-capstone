@@ -1,10 +1,12 @@
+@import '../../styles/partials/mixins';
+
 .header{
     width:100%;
     height:fit-content;
     display:flex;
-    background-color:azure;
+    background-color:#b8b8da;
     justify-content:center;
-    gap:20rem;
+    padding-top:0.5rem;
 
     &__logo{
         width:fit-content;
@@ -16,7 +18,7 @@
 
     &__img{
         object-fit:contain;
-        max-width:100%;
+        max-width:70%;
         max-height:100%;
     }
 

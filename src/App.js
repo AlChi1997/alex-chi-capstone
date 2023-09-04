@@ -6,6 +6,7 @@ import Homepage from './Pages/Homepage/Homepage';
 import About from './Pages/About/About';
 import Login from './Pages/LogIn/Login';
 import Signup from './Pages/SignUp/Signup';
+import Profile from './Pages/Profile/Profile';
 import './styles/App.scss';
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/user:id" element={<User />} />
-        <Route path="/user/:id/education" element={<Education />} />
+        <Route path="/user/:id" element={<Profile />} />
+        {/* <Route path="/user/:id/education" element={<Education />} />
         <Route path="/user/:id/career" element={<Career />} />  */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />

@@ -1,0 +1,105 @@
+.profile{
+    width:100%;
+    padding-top:1rem;
+
+    &__info{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        &-box{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            width:100%;
+            margin:0 10px;
+            padding-bottom:1em;
+            border-bottom: 1px solid #ccc;
+        }
+
+        &-title{
+            width:100%;
+            font-size:18px;
+        }
+
+        &-container{
+            width:75%;
+        }
+
+        &-name{
+            font-size:16px;
+        }
+
+        &-email{
+            font-size:16px;
+        }
+
+        &-phone{
+            font-size:16px;
+        }
+
+        &-avatar{
+            width:20%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        &-img{
+            width:3.5em;
+            height:3.5em;
+        }
+    }
+
+    &__interests{
+        padding:1em 0;
+
+        &-title{
+            width:100%;
+            font-size:16px;
+        }
+    
+    }
+
+    &__education{
+        padding:1em 0;
+        margin:0 10px;
+        border-bottom: 1px solid #ccc;
+
+        &-title{
+            width:100%;
+            font-size:18px;
+        }
+
+        &-piechart{
+            width:100%;
+        }
+        
+        &-link{
+            display:Flex;
+            width:fit-content
+        }
+
+        &-details{
+            font-size:16px;
+        }
+    }
+
+    &__career{
+        padding:1em 10px;
+
+        &-title{
+            width:100%;
+            font-size:18px;
+        }
+
+        &-details{
+            font-size:16px;
+        }
+    }
+}
+
+
+
