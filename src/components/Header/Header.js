@@ -5,12 +5,12 @@ import './Header.scss';
 const Header = () => {
     return (
         <div className='header'>
-            <div class="header__logo">
+            <div className="header__logo">
                 <Link className="header__home" to='/'>
                     <img className="header__img" src={launchpad} alt='launchpad'/>
                 </Link>
             </div>
-            <ul class="header__list">
+            <ul className="header__list">
                 <li>
                     <Link className="header__home" to='/'>Home</Link>
                 </li>
@@ -18,7 +18,7 @@ const Header = () => {
                     <Link className='header__about' to='/about'>About</Link>
                 </li>
             </ul>
-            <div class="header__auth">
+            <div className="header__auth">
                 <Link className="header__signup" to='/signup'>
                     <button className="header__signup" type="button">Sign-Up</button>
                 </Link>

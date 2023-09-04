@@ -42,6 +42,10 @@
             font-size:1em;
             pointer-events:none;
             transition:.5s;
+            
+            &.active{
+                top:-5px;
+            }
         }
 
         & input{
