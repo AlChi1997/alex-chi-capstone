@@ -16,9 +16,9 @@ const Footer = () => {
                     </li>
                 </ul>
                 <div className='footer__contact'>
-                    <p className='footer__contact__text'>Contact Us</p>
-                    <p className='footer__contact__text'>Email:support@launchpad.com</p>
-                    <p className='footer__contact__text'>Phone:+1 647 123 0000</p>
+                    <p className='footer__contact-text'>Contact Us</p>
+                    <p className='footer__contact-text'>Email:support@launchpad.com</p>
+                    <p className='footer__contact-text'>Phone:+1 647 123 0000</p>
                 </div>
             </div>
         </div>

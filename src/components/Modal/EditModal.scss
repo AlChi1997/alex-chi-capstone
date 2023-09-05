@@ -1,0 +1,70 @@
+@import "../../styles//partials/mixins";
+
+.modal{
+    position:fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:rgba(0,0,0,0.5);
+    z-index:1000;
+
+    &__content{
+        background-color:white;
+        border-radius:5px;
+        padding:1rem;
+        text-align:left;
+
+        @include desktop{
+            width:70%;
+        }
+    }
+    
+
+    &__header{
+        font-size:16px;
+        padding-bottom:1em;
+    }
+
+    &__close{
+        display:flex;
+        justify-content:flex-end;
+        width:fit-content;
+
+        &-img{
+            &:hover{
+                cursor:pointer;
+            }
+        }
+    }
+
+    &__form{
+
+        &-input{
+            width:100%;
+            padding:0.5em;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:12px;
+        }
+
+        &-btn{
+            padding-top:0.5em;
+            display:flex;
+            justify-content:flex-end;
+            gap:1em;
+
+            &-cancel,&-save{
+                background-color:rgb(226, 201, 155);
+                padding:2px 5px;
+                border:none;
+                border-radius:5px;
+            }
+        }
+    }  
+}
+
+

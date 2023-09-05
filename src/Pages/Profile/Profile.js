@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import avatar from '../../assets/avatar.jpg';
+import EditModal from '../../components/Modal/EditModal';
 import './Profile.scss';
 
 const Profile = () => {
@@ -21,6 +22,8 @@ const Profile = () => {
     const [interest3, setInterest3] = useState("");
     const [interest4, setInterest4] = useState("");
     const [interest5, setInterest5] = useState("");
+    const [careerSuggestions, setCareerSuggestions] = useState("");
+    const [editModal, setEditModal] = useState(false);
 
     useEffect(() => {
         const getUser = async () => {
@@ -36,12 +39,9 @@ const Profile = () => {
         }}
             catch (error) {
             console.log("An error occured: ", error);
-        }
-    };
-        getUser();
-    }, []);
+            }
+        };
 
-    useEffect(() => {
         const getEducation = async () => {
             try {
             const response = await axios.get(`http://localhost:8080/education/${id}`);
@@ -49,23 +49,12 @@ const Profile = () => {
             setMath(response.data[0].Math || 0);
             setScience(response.data[0].Science || 0);
             setLanguage(response.data[0].Language || 0);
-        }}
+            }}
          catch (error) {
             console.log("An error occured: ", error);
-        }
-    };
-        getEducation();
-    }, []);
+            }
+        };
 
-    const educationData =[
-        {name: "Math", value: math},
-        {name: "Science", value: science},
-        {name: "Language", value: language},
-    ];
-
-    console.log(educationData);
-
-    useEffect(() => {
         const getInterest = async () => {
             try {
             const response = await axios.get(`http://localhost:8080/interests/${id}`);
@@ -81,8 +70,58 @@ const Profile = () => {
             console.log("An error occured: ", error);
         }
     };
-        getInterest();
-    }, []);
+
+        const getCareer = async () => {
+            try {
+            const response = await axios.get(`http://localhost:8080/careers/${id}`);
+            if(response && response.data){
+            setCareerSuggestions(response.data)
+            console.log(response.data);
+        }}
+            catch (error) {
+            console.log("An error occured: ", error);
+        }
+    };
+        Promise.all([getUser(), getEducation(), getInterest(), getCareer()])
+        .then(() => {
+            if(careerSuggestions === ""){
+            const interestsString = interestData.filter((interest)=> interest !== null).join(", ");
+            const educationString = `Math: ${educationData.math || 'Not specified'}, Science: ${educationData.science || 'Not specified'}, Language: ${educationData.language || 'Not specified'}`;
+            const requestMessage = `My interests are ${interestsString}, my education grades in ${educationString}, can you provide me with 10 careers I might be strong in JSON string format
+                                    as an array with no name and with each career being an object with the key career and a breif description of each career with the key description, can you also not include any chating like sure or here is it and just provide the array of careers.`;
+            const requestBody ={
+                message: requestMessage
+            };
+            axios.post(`http://localhost:8080/careers/${id}`,requestBody)
+                .then((response) => {
+                if(response && response.message){
+                    console.log(response.message);
+                }
+            })
+            .catch ((error)=>{
+                console.log("An error occured: ", error);
+            });
+        };
+    }); 
+},[]);
+
+    console.log(careerSuggestions);
+
+    const pieData =[
+        {name: "Math", value: math},
+        {name: "Science", value: science},
+        {name: "Language", value: language},
+    ];
+
+    console.log(pieData);
+
+    const educationData = [
+        math,
+        science,
+        language
+    ].filter((subject) => subject !== 0);
+
+    console.log(educationData);
 
     const interestData = [
         interest1,
@@ -91,22 +130,6 @@ const Profile = () => {
         interest4,
         interest5
     ].filter((interest) => interest !== "");   
-
-    const getCareerSuggestions = async () => {
-        try {
-            const response = await axios.get(`http://localhost:8080/careers/${id}`,
-            {interests: interestData},
-            {education: educationData
-            });
-            if(response && response.data){
-                const careerSuggestions = response.data;
-                console.log(careerSuggestions);
-            }
-        }
-        catch (error) {
-            console.log("An error occured: ", error);
-        }
-    };
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
@@ -124,10 +147,31 @@ const Profile = () => {
     };
 
     return (
+        <>
+        {editModal && (
+            <EditModal
+            firstname={firstName}
+            lastname={lastName}
+            phonenumber={phoneNumber}
+            email={email}
+            interest1={interest1}
+            interest2={interest2}
+            interest3={interest3}
+            interest4={interest4}
+            interest5={interest5}
+            user_id={id}
+            onCancel={() => setEditModal(false)}
+            />
+        )}
         <div className='profile'>
             <section className="profile__info">
                 <div className="profile__info-box">
+                    <div className='profile__info-header'>
                     <h2 className="profile__info-title">My Profile</h2>
+                    <div className='profile__info-edit' onClick={()=>{setEditModal(true)}}>
+                        <p className='profile__info-edit-text'>Edit</p>
+                        </div>
+                    </div>
                     <div className="profile__info-container">
                         <h3 className='profile__info-name'>Name: {firstName} {lastName}</h3>
                         <p className='profile__info-email'>Email:{email}</p>
@@ -151,7 +195,7 @@ const Profile = () => {
                     <Pie
                         dataKey="value"
                         isAnimationActive={false}
-                        data={educationData}
+                        data={pieData}
                         cx="50%"
                         cy="50%"
                         outerRadius={100}
@@ -159,7 +203,7 @@ const Profile = () => {
                         label={renderCustomizedLabel}
                         labelLine={false}
                     >
-                    {educationData.map((entry, index) => (
+                    {pieData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                     </Pie>
@@ -174,6 +218,14 @@ const Profile = () => {
             </section>
             <section className='profile__career'>
                 <h2 className='profile__career-title'>My Careers</h2>
+                <div className="profile__career-recommendations">
+                    {careerSuggestions && careerSuggestions.map((career, index) => (
+                        <div className='profile__career-recommendation' key={index}>
+                            <h3 className='profile__career-recommendation-title'>{career.Career_Title}</h3>
+                            <p className='profile__career-recommendation-description'>{career.Description}</p>
+                            </div>
+                    ))}
+                </div>
                 <div>
                     <Link to={`/user/${id}/careers`} className='profile__career-link'>
                         <p className='profile__career-details'>View Details</p>
@@ -181,6 +233,7 @@ const Profile = () => {
                 </div>
             </section>
         </div>
+    </>
     )
 }
 

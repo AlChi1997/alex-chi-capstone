@@ -1,5 +1,7 @@
 import React from 'react'
 import rocket from '../../assets/rocket.jpg'
+import problem from '../../assets/problem.png'
+import help from '../../assets/help.jpg'
 import './About.scss'
 
 const About = () => {
@@ -9,9 +11,22 @@ const About = () => {
             <div className='about__banner'>
                 <div className='about__filter'></div>
                 <h1 className='about__title'>About Us</h1>
-                <img className='about__banner__img' src={rocket} alt='rocket'/>
+                <img className='about__banner-img' src={rocket} alt='rocket'/>
             </div>
             <div className='about__content'>
+                <section className='about__block'>
+                    <div className='about__textbox'>
+                        <h2>Problem Space</h2>
+                        <p className='about__text'>
+                            A growing number of early adults and students are navigating the daunting maze of career choices with 
+                            uncertainty. This is evident in the rising trends of career switches, college dropouts, and 
+                            program changes. 
+                        </p>
+                    </div>
+                    <div className='about__container'>
+                        <img className='about__img' src={problem} alt='confused student'/>
+                    </div>
+                </section>
                 <section className='about__block'>
                     <div className='about__textbox'>
                         <h2>Who are we?</h2>
@@ -23,20 +38,7 @@ const About = () => {
                         </p>
                     </div>
                     <div className='about__container'>
-                        <img className='about__img' src={rocket} alt='rocket'/>
-                    </div>
-                </section>
-                <section className='about__block'>
-                    <div className='about__container'>
-                        <img className='about__img' src={rocket} alt='rocket'/>
-                    </div>
-                    <div className='about__textbox'>
-                        <h2>Problem Space</h2>
-                        <p className='about__text'>
-                            A growing number of early adults and students are navigating the daunting maze of career choices with 
-                            uncertainty. This is evident in the rising trends of career switches, college dropouts, and 
-                            program changes. 
-                        </p>
+                        <img className='about__img' src={help} alt='rocket'/>
                     </div>
                 </section>
                 <section className='about__block'>

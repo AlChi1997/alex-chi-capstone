@@ -10,10 +10,10 @@ const Homepage = () => {
         <div className='homepage'>
             <div className='homepage__banner'>
                 <div className='homepage__transparent'></div>
-                <img className='homepage__img' src={banner} alt='banner' />
+                <img className='homepage__banner-img' src={banner} alt='banner' />
             </div>
             <div className='homepage__content'>
-                <section className='homepage__block'>
+                <section className='homepage__block-1'>
                     <p className='homepage__text'>
                         Launchpad is your essential companion on the journey to discovering 
                         the perfect career path. Designed with young adults in mind, our innovative 
@@ -25,19 +25,19 @@ const Homepage = () => {
                         <img className='homepage__img' src={classroom} alt='classroom' />
                     </div>
                 </section>
-                <section className='homepage__block'>
-                    <div className='homepage__container'>
-                        <img className='homepage__img' src={career} alt='career selection' />
-                    </div>
-                    <p className='homepage__text'>
+                <section className='homepage__block-2'>
+                     <p className='homepage__text'>
                         With Launchpad, young adults can explore a diverse array of career possibilities, 
                         uncovering hidden talents and passions they may not have known they possessed. 
                         Our platform provides valuable insights, offering personalized recommendations 
                         based on individual interests and academic aptitude, thus empowering users to 
                         make informed decisions about their educational and professional futures. 
                     </p>
+                    <div className='homepage__container'>
+                        <img className='homepage__img' src={career} alt='career selection' />
+                    </div>
                 </section>
-                <section className='homepage__block'>
+                <section className='homepage__block-3'>
                     <p className='homepage__text'>
                         Furthermore, at Launchpad, we understand that job satisfaction and career success are 
                         integral to a fulfilling life. That's why our platform not only helps you identify potential 
