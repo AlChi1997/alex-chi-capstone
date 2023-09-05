@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Launchpad Capstone Project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -41,30 +41,31 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+My app has folders called Pages and Components which load onto the app.
+The Pages folder has and About, Career, Education, Homepage, Login, Profile, and Signup pages which are used to render site end points.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+About:
 
-### Code Splitting
+Is the page where the About Us information will be rendered
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Homepage:
 
-### Analyzing the Bundle Size
+Is the page where the site's homepage will be rendered
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Login:
 
-### Making a Progressive Web App
+Is the page where the site's login page will be rendered
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Profile:
 
-### Advanced Configuration
+is the page where the site's user page will be rendered
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Signup:
 
-### Deployment
+is the page where the site's signin page will be rendered
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Career, Education
 
-### `npm run build` fails to minify
+Are pages that are currently still in the works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
